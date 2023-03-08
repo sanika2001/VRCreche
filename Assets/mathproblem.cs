@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 public class mathproblem : MonoBehaviour
 {
-
+    public Material wallMaterial;
     public TextMeshProUGUI firstnumber;
     public TextMeshProUGUI secondnumber;
     public TextMeshProUGUI answer1;
@@ -84,6 +84,8 @@ public class mathproblem : MonoBehaviour
             rightOrWrong_Text.color = Color.green;
             rightOrWrong_Text.text = ("Correct");
             Invoke("TurnOffText",1);
+            Color newColor = new Color(Random.value, Random.value, Random.value, 1.0f);
+            wallMaterial.color = newColor;
         }
         else{
             rightOrWrong_Text.enabled = true;
@@ -99,6 +101,8 @@ public class mathproblem : MonoBehaviour
             rightOrWrong_Text.color = Color.green;
             rightOrWrong_Text.text = ("Correct");
             Invoke("TurnOffText",1);
+            Color newColor = new Color(Random.value, Random.value, Random.value, 1.0f);
+            wallMaterial.color = newColor;
         }
         else{
             rightOrWrong_Text.enabled = true;
@@ -116,6 +120,8 @@ public class mathproblem : MonoBehaviour
             rightOrWrong_Text.color = Color.green;
             rightOrWrong_Text.text = ("Correct");
             Invoke("TurnOffText", 1);
+            Color newColor = new Color(Random.value, Random.value, Random.value, 1.0f);
+            wallMaterial.color = newColor;
         }
         else
         {
