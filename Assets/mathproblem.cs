@@ -5,7 +5,8 @@ using UnityEngine.UI;
 using TMPro;
 public class mathproblem : MonoBehaviour
 {
-
+    public Material wallMaterial;
+    public Material floorMaterial;
     public TextMeshProUGUI firstnumber;
     public TextMeshProUGUI secondnumber;
     public TextMeshProUGUI answer1;
@@ -26,6 +27,10 @@ public class mathproblem : MonoBehaviour
     
     public int currentAnswer;
     public TextMeshProUGUI rightOrWrong_Text;
+
+    //var Arraylist = new Color[] { Color.Red, Color.Blue, Color.Green, Color.Purple, Color.Black, Color.Aqua };
+    //List<Color[]> color = new List<Color[]>();
+    //color.Add(Arraylist);
      
     public void DisplayMathProblem() {
         //generate a random numb as 1st and 2nd numb
@@ -84,6 +89,10 @@ public class mathproblem : MonoBehaviour
             rightOrWrong_Text.color = Color.green;
             rightOrWrong_Text.text = ("Correct");
             Invoke("TurnOffText",1);
+            Color newColor = new Color(Random.value, Random.value, Random.value, 1.0f);
+            wallMaterial.color = newColor;
+            newColor = new Color(Random.value, Random.value, Random.value, 1.0f);
+            floorMaterial.color = newColor;
         }
         else{
             rightOrWrong_Text.enabled = true;
@@ -99,6 +108,10 @@ public class mathproblem : MonoBehaviour
             rightOrWrong_Text.color = Color.green;
             rightOrWrong_Text.text = ("Correct");
             Invoke("TurnOffText",1);
+            Color newColor = new Color(Random.value, Random.value, Random.value, 1.0f);
+            wallMaterial.color = newColor;
+            newColor = new Color(Random.value, Random.value, Random.value, 1.0f);
+            floorMaterial.color = newColor;
         }
         else{
             rightOrWrong_Text.enabled = true;
@@ -116,6 +129,10 @@ public class mathproblem : MonoBehaviour
             rightOrWrong_Text.color = Color.green;
             rightOrWrong_Text.text = ("Correct");
             Invoke("TurnOffText", 1);
+            Color newColor = new Color(Random.value, Random.value, Random.value, 1.0f);
+            wallMaterial.color = newColor;
+            newColor = new Color(Random.value, Random.value, Random.value, 1.0f);
+            floorMaterial.color = newColor;
         }
         else
         {
