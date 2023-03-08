@@ -10,6 +10,7 @@ public class mathproblem : MonoBehaviour
     public TextMeshProUGUI secondnumber;
     public TextMeshProUGUI answer1;
     public TextMeshProUGUI answer2;
+    public TextMeshProUGUI answer3;
 
     public List<int> easyMathList = new List<int>();
 
@@ -19,6 +20,7 @@ public class mathproblem : MonoBehaviour
     int secondNumberInProblem;
     int answerOne;
     int answerTwo;
+    int answerThree;
     int displayRandomAnswer;
     int randomAnswerPlacement;
     
@@ -34,28 +36,45 @@ public class mathproblem : MonoBehaviour
         secondNumberInProblem = randomSecondNumber;
         //can use addition/sub/mult/div
         answerOne = firstNumberInProblem + secondNumberInProblem;
-        displayRandomAnswer = Random.Range(0,2);
-        if(displayRandomAnswer == 0){
-            answerTwo = answerOne + Random.Range(1,5);
+        displayRandomAnswer = Random.Range(0,3);
+        if (displayRandomAnswer == 0)
+        {
+            answerTwo = answerOne + Random.Range(1, 10);
+            answerThree = answerOne - Random.Range(1, 5);
         }
-        else{
-            answerTwo = answerOne - Random.Range(1,5);
+        else if (displayRandomAnswer == 1)
+        {
+            answerTwo = answerOne - Random.Range(1, 5);
+            answerThree = answerOne + Random.Range(1, 5);
+        }
+        else {
+            answerTwo = answerOne - Random.Range(1, 5);
+            answerThree = answerOne + Random.Range(1, 10);
         }
 
         firstnumber.text = ""+firstNumberInProblem;
         secondnumber.text = ""+secondNumberInProblem;
-        randomAnswerPlacement = Random.Range(0,2);
-        if(randomAnswerPlacement == 0){
-
-            answer1.text = ""+ answerOne;
-            answer2.text = ""+ answerTwo;
+        randomAnswerPlacement = Random.Range(0,3);
+        if (randomAnswerPlacement == 0)
+        {
+            answer1.text = "" + answerOne;
+            answer2.text = "" + answerTwo;
+            answer3.text = "" + answerThree;
             currentAnswer = 0;
         }
-        else{
-            answer1.text = ""+ answerTwo;
-            answer2.text = ""+ answerOne;
+        else if (randomAnswerPlacement == 0)
+        {
+            answer1.text = "" + answerThree;
+            answer2.text = "" + answerOne;
+            answer3.text = "" + answerTwo;
             currentAnswer = 1;
-        }        
+        }
+        else {
+            answer1.text = "" + answerTwo;
+            answer2.text = "" + answerThree;
+            answer3.text = "" + answerOne;
+            currentAnswer = 2;
+        }       
     }
 
     public void ButtonAnswer1(){
@@ -86,6 +105,24 @@ public class mathproblem : MonoBehaviour
             rightOrWrong_Text.color = Color.red;
             rightOrWrong_Text.text = ("Try Again!");
             Invoke("TurnOffText",1);
+        }
+    }
+    public void ButtonAnswer3()
+    {
+        if (currentAnswer == 2)
+        {
+
+            rightOrWrong_Text.enabled = true;
+            rightOrWrong_Text.color = Color.green;
+            rightOrWrong_Text.text = ("Correct");
+            Invoke("TurnOffText", 1);
+        }
+        else
+        {
+            rightOrWrong_Text.enabled = true;
+            rightOrWrong_Text.color = Color.red;
+            rightOrWrong_Text.text = ("Try Again!");
+            Invoke("TurnOffText", 1);
         }
     }
     public void TurnOffText(){
