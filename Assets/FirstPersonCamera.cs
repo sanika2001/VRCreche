@@ -6,7 +6,7 @@ public class FirstPersonCamera : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public float turnSpeed = 4.0f;
+    public float turnSpeed = 2.0f;
     public float moveSpeed = 2.0f;
     public float minTurnAngle = -90.0f;
     public float maxTurnAngle = 90.0f;
