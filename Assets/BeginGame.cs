@@ -7,18 +7,16 @@ public class BeginGame : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadSceneAsync("Tester");
+        SceneManager.LoadSceneAsync("Varsha1");
     }
-
-    // Start is called before the first frame update
-    // void Start()
-    // {
-        
-    // }
-
-    // Update is called once per frame
-    // void Update()
-    // {S
-        
-    // }
+    
+    public void Back()
+    {
+        SceneManager.LoadSceneAsync("Varsha");
+    }
+    
+    public void BasicArith()
+    {
+        SceneManager.LoadSceneAsync("SampleScene");
+    }
 }
