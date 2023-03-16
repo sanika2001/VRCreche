@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Varsha.unity
+    guid: 2a29fbd5d11e8914d8d2e3814ce55373
+  - enabled: 1
+    path: Assets/Scenes/Tester.unity
+    guid: 47ddbe91ad277ab448f847d62d3c244b
   m_configObjects: {}
