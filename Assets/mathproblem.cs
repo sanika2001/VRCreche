@@ -27,7 +27,8 @@ public class mathproblem : MonoBehaviour
     
     public int currentAnswer;
     public TextMeshProUGUI rightOrWrong_Text;
-
+    public TextMeshProUGUI scorevalue;
+    int value = 0;
     //var Arraylist = new Color[] { Color.Red, Color.Blue, Color.Green, Color.Purple, Color.Black, Color.Aqua };
     //List<Color[]> color = new List<Color[]>();
     //color.Add(Arraylist);
@@ -93,12 +94,22 @@ public class mathproblem : MonoBehaviour
             wallMaterial.color = newColor;
             newColor = new Color(Random.value, Random.value, Random.value, 1.0f);
             floorMaterial.color = newColor;
+
+            value = value+1;
+            scorevalue.enabled = true;
+            scorevalue.color = Color.white;
+            scorevalue.text = value.ToString();
         }
         else{
             rightOrWrong_Text.enabled = true;
             rightOrWrong_Text.color = Color.red;
             rightOrWrong_Text.text = ("Try Again!");
             Invoke("TurnOffText",1);
+
+            value = value-1;
+            scorevalue.enabled = true;
+            scorevalue.color = Color.white;
+            scorevalue.text = value.ToString();
         }
     }
     public void ButtonAnswer2(){
@@ -112,12 +123,22 @@ public class mathproblem : MonoBehaviour
             wallMaterial.color = newColor;
             newColor = new Color(Random.value, Random.value, Random.value, 1.0f);
             floorMaterial.color = newColor;
+
+            value = value+1;
+            scorevalue.enabled = true;
+            scorevalue.color = Color.white;
+            scorevalue.text = value.ToString();
         }
         else{
             rightOrWrong_Text.enabled = true;
             rightOrWrong_Text.color = Color.red;
             rightOrWrong_Text.text = ("Try Again!");
             Invoke("TurnOffText",1);
+            
+            value = value-1;
+            scorevalue.enabled = true;
+            scorevalue.color = Color.white;
+            scorevalue.text = value.ToString();
         }
     }
     public void ButtonAnswer3()
@@ -133,6 +154,11 @@ public class mathproblem : MonoBehaviour
             wallMaterial.color = newColor;
             newColor = new Color(Random.value, Random.value, Random.value, 1.0f);
             floorMaterial.color = newColor;
+
+            value = value+1;
+            scorevalue.enabled = true;
+            scorevalue.color = Color.white;
+            scorevalue.text = value.ToString();
         }
         else
         {
@@ -140,6 +166,11 @@ public class mathproblem : MonoBehaviour
             rightOrWrong_Text.color = Color.red;
             rightOrWrong_Text.text = ("Try Again!");
             Invoke("TurnOffText", 1);
+
+            value = value-1;
+            scorevalue.enabled = true;
+            scorevalue.color = Color.white;
+            scorevalue.text = value.ToString();
         }
     }
     public void TurnOffText(){
