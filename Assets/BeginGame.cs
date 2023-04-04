@@ -5,18 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class BeginGame : MonoBehaviour
 {
-    public void PlayGame()
+    public void Arith_Play()
     {
-        SceneManager.LoadSceneAsync("Varsha1");
+        SceneManager.LoadSceneAsync("ArithPlay");
     }
     
-    public void Back()
+    public void Arith_Back()
     {
-        SceneManager.LoadSceneAsync("Varsha");
+        SceneManager.LoadSceneAsync("MainMenu");
     }
     
-    public void BasicArith()
+    public void Arith_Game()
     {
-        SceneManager.LoadSceneAsync("SampleScene");
+        SceneManager.LoadSceneAsync("jyothir");
     }
 }
