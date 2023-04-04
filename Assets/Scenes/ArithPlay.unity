@@ -306,7 +306,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 291031317}
         m_TargetAssemblyTypeName: BeginGame, Assembly-CSharp
-        m_MethodName: BasicArith
+        m_MethodName: Arith_Game
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -920,7 +920,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 291031317}
         m_TargetAssemblyTypeName: BeginGame, Assembly-CSharp
-        m_MethodName: Back
+        m_MethodName: Arith_Back
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
