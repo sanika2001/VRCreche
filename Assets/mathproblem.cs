@@ -164,9 +164,5 @@ public class mathproblem : MonoBehaviour
         
     }
 
-    // Back button to main menu
-    public void MainMenu()
-    {
-        SceneManager.LoadSceneAsync("MainMenu");
-    }
+
 }
