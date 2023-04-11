@@ -9,23 +9,20 @@ public class gyroscope : MonoBehaviour
    
    void Start ()
      {
-        Debug.Log(SystemInfo.deviceType);
-        if(SystemInfo.deviceType == DeviceType.Handheld)
-        {
+        
            
             Input.gyro.enabled = true;
             phone=1;
-        }
+        
         
      }
 
   void Update ()
      {
+             
         
-        if(phone==1)
-        {
           GyroModifyCamera();
-        }
+        
      }
       void GyroModifyCamera()
     {
