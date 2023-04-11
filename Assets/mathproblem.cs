@@ -89,7 +89,7 @@ public class mathproblem : MonoBehaviour
 
             rightOrWrong_Text.enabled = true;
             rightOrWrong_Text.color = Color.green;
-            rightOrWrong_Text.text = ("Correct");
+            rightOrWrong_Text.text = ("Yay! You got it");
             Invoke("TurnOffText",1);
             Color newColor = new Color(Random.value, Random.value, Random.value, 1.0f);
             wallMaterial.color = newColor;
@@ -99,7 +99,7 @@ public class mathproblem : MonoBehaviour
         else{
             rightOrWrong_Text.enabled = true;
             rightOrWrong_Text.color = Color.red;
-            rightOrWrong_Text.text = ("Try Again!");
+            rightOrWrong_Text.text = ("incorrect,Try again!");
             Invoke("TurnOffText",1);
         }
     }
@@ -108,7 +108,7 @@ public class mathproblem : MonoBehaviour
 
             rightOrWrong_Text.enabled = true;
             rightOrWrong_Text.color = Color.green;
-            rightOrWrong_Text.text = ("Correct");
+            rightOrWrong_Text.text = ("Yay! You got it");
             Invoke("TurnOffText",1);
             Color newColor = new Color(Random.value, Random.value, Random.value, 1.0f);
             wallMaterial.color = newColor;
@@ -118,7 +118,7 @@ public class mathproblem : MonoBehaviour
         else{
             rightOrWrong_Text.enabled = true;
             rightOrWrong_Text.color = Color.red;
-            rightOrWrong_Text.text = ("Try Again!");
+            rightOrWrong_Text.text = ("incorrect,Try again!");
             Invoke("TurnOffText",1);
         }
     }
@@ -129,7 +129,7 @@ public class mathproblem : MonoBehaviour
 
             rightOrWrong_Text.enabled = true;
             rightOrWrong_Text.color = Color.green;
-            rightOrWrong_Text.text = ("Correct");
+            rightOrWrong_Text.text = ("Yay! You got it");
             Invoke("TurnOffText", 1);
             Color newColor = new Color(Random.value, Random.value, Random.value, 1.0f);
             wallMaterial.color = newColor;
@@ -140,7 +140,7 @@ public class mathproblem : MonoBehaviour
         {
             rightOrWrong_Text.enabled = true;
             rightOrWrong_Text.color = Color.red;
-            rightOrWrong_Text.text = ("Try Again!");
+            rightOrWrong_Text.text = ("incorrect,Try again!");
             Invoke("TurnOffText", 1);
         }
     }
