@@ -5,14 +5,14 @@ using UnityEngine;
 public class gyroscope : MonoBehaviour
 {
     // Start is called before the first frame update
-    int phone = 0;
+   // int phone = 0;
    
    void Start ()
      {
         
            
             Input.gyro.enabled = true;
-            phone=1;
+            
         
         
      }

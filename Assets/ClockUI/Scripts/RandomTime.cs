@@ -7,6 +7,7 @@ public class RandomTime : MonoBehaviour
 {
    
     public TMP_Text time;
+    public int m,h;
 
     void Start()
     {
@@ -17,8 +18,8 @@ public class RandomTime : MonoBehaviour
 
     string RandomHour()
     {
-        int h = Random.Range(1, 13);
-        Debug.Log(h);
+        h = Random.Range(1, 13);
+        
 
         string hour = h.ToString();
 
@@ -31,7 +32,7 @@ public class RandomTime : MonoBehaviour
     
     string RandomMinute()
     {
-        int m = Random.Range(0,12)*5;
+         m = Random.Range(0,12)*5;
 
         string minute = m.ToString();
 
