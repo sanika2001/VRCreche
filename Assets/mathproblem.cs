@@ -11,10 +11,13 @@ public class mathproblem : MonoBehaviour
     public Material floorMaterial;
     public TextMeshProUGUI firstnumber;
     public TextMeshProUGUI secondnumber;
+    public TextMeshProUGUI thirdnumber;
     public TextMeshProUGUI answer1;
     public TextMeshProUGUI answer2;
     public TextMeshProUGUI answer3;
     public TextMeshProUGUI ScoreVal;
+    public TextMeshProUGUI LevelVal;
+    public TextMeshProUGUI plus;
 
     public List<int> easyMathList = new List<int>();
 
@@ -97,11 +100,17 @@ public class mathproblem : MonoBehaviour
             rightOrWrong_Text.enabled = true;
             rightOrWrong_Text.color = Color.green;
             rightOrWrong_Text.text = ("Yay! You got it");
+            if (currentScore >= 15 && level == 1)
+            {
+                level = 2;
+                LevelVal.text = "" + level;
+            }
             Invoke("TurnOffText",1);
             Color newColor = new Color(Random.value, Random.value, Random.value, 1.0f);
             wallMaterial.color = newColor;
             newColor = new Color(Random.value, Random.value, Random.value, 1.0f);
             floorMaterial.color = newColor;
+            
         }
         else{
             rightOrWrong_Text.enabled = true;
@@ -117,6 +126,11 @@ public class mathproblem : MonoBehaviour
             rightOrWrong_Text.enabled = true;
             rightOrWrong_Text.color = Color.green;
             rightOrWrong_Text.text = ("Yay! You got it");
+            if (currentScore >= 25 && level == 1)
+            {
+                level = 2;
+                LevelVal.text = "" + level;
+            }
             Invoke("TurnOffText",1);
             Color newColor = new Color(Random.value, Random.value, Random.value, 1.0f);
             wallMaterial.color = newColor;
@@ -139,6 +153,11 @@ public class mathproblem : MonoBehaviour
             rightOrWrong_Text.enabled = true;
             rightOrWrong_Text.color = Color.green;
             rightOrWrong_Text.text = ("Yay! You got it");
+            if (currentScore >= 25 && level == 1)
+            {
+                level = 2;
+                LevelVal.text = "" + level;
+            }
             Invoke("TurnOffText", 1);
             Color newColor = new Color(Random.value, Random.value, Random.value, 1.0f);
             wallMaterial.color = newColor;
@@ -186,6 +205,8 @@ public class mathproblem : MonoBehaviour
 
         firstnumber.text = "" + firstNumberInProblem;
         secondnumber.text = "" + secondNumberInProblem;
+        thirdnumber.text = "" + thirdNumberInProblem;
+        plus.text = "+";
         randomAnswerPlacement = Random.Range(0, 3);
         if (randomAnswerPlacement == 0)
         {
@@ -217,14 +238,22 @@ public class mathproblem : MonoBehaviour
 
         if(rightOrWrong_Text != null)
             rightOrWrong_Text.enabled = false;
-        DisplayMathProblem();
+        if (level == 1)
+        {
+            DisplayMathProblem();
+        }
+        else
+        {
+            levelWeight = 10;
+            DisplayMathProblemLev2();
+        }
     }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        DisplayMathProblem();
+            DisplayMathProblem();
     }
 
     // Update is called once per frame
