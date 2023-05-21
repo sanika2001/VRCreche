@@ -24,6 +24,7 @@ public class mathproblem : MonoBehaviour
     public int randomFirstNumber;
     public int randomSecondNumber;
     public int randomThirdNumber;
+    public int noofQuestions = 0;
     int firstNumberInProblem;
     int secondNumberInProblem;
     int thirdNumberInProblem;
@@ -35,6 +36,7 @@ public class mathproblem : MonoBehaviour
     int currentScore = 0;
     int level = 1;
     int levelWeight = 5;
+    int levelsubWeight = 1;
     
     public int currentAnswer;
     public TextMeshProUGUI rightOrWrong_Text;
@@ -100,7 +102,7 @@ public class mathproblem : MonoBehaviour
             rightOrWrong_Text.enabled = true;
             rightOrWrong_Text.color = Color.green;
             rightOrWrong_Text.text = ("Yay! You got it");
-            if (currentScore >= 15 && level == 1)
+            if (currentScore >= 25 && noofQuestions <= 7 && level == 1)
             {
                 level = 2;
                 LevelVal.text = "" + level;
@@ -113,6 +115,8 @@ public class mathproblem : MonoBehaviour
             
         }
         else{
+            currentScore -= levelsubWeight;
+            ScoreVal.text = "" + currentScore;
             rightOrWrong_Text.enabled = true;
             rightOrWrong_Text.color = Color.red;
             rightOrWrong_Text.text = ("incorrect,Try again!");
@@ -126,11 +130,11 @@ public class mathproblem : MonoBehaviour
             rightOrWrong_Text.enabled = true;
             rightOrWrong_Text.color = Color.green;
             rightOrWrong_Text.text = ("Yay! You got it");
-            if (currentScore >= 25 && level == 1)
+            if (currentScore >= 25 && noofQuestions <= 7 && level == 1)
             {
                 level = 2;
                 LevelVal.text = "" + level;
-            }
+            }else
             Invoke("TurnOffText",1);
             Color newColor = new Color(Random.value, Random.value, Random.value, 1.0f);
             wallMaterial.color = newColor;
@@ -138,6 +142,8 @@ public class mathproblem : MonoBehaviour
             floorMaterial.color = newColor;
         }
         else{
+            currentScore -= levelsubWeight;
+            ScoreVal.text = "" + currentScore;
             rightOrWrong_Text.enabled = true;
             rightOrWrong_Text.color = Color.red;
             rightOrWrong_Text.text = ("incorrect,Try again!");
@@ -153,7 +159,7 @@ public class mathproblem : MonoBehaviour
             rightOrWrong_Text.enabled = true;
             rightOrWrong_Text.color = Color.green;
             rightOrWrong_Text.text = ("Yay! You got it");
-            if (currentScore >= 25 && level == 1)
+            if (currentScore >= 25 && noofQuestions <= 7 && level == 1)
             {
                 level = 2;
                 LevelVal.text = "" + level;
@@ -166,6 +172,8 @@ public class mathproblem : MonoBehaviour
         }
         else
         {
+            currentScore -= levelsubWeight;
+            ScoreVal.text = "" + currentScore;
             rightOrWrong_Text.enabled = true;
             rightOrWrong_Text.color = Color.red;
             rightOrWrong_Text.text = ("incorrect,Try again!");
@@ -240,11 +248,13 @@ public class mathproblem : MonoBehaviour
             rightOrWrong_Text.enabled = false;
         if (level == 1)
         {
+            noofQuestions += 1;
             DisplayMathProblem();
         }
         else
         {
             levelWeight = 10;
+            levelsubWeight = 2;
             DisplayMathProblemLev2();
         }
     }
@@ -253,6 +263,7 @@ public class mathproblem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        noofQuestions += 1;
             DisplayMathProblem();
     }
 
