@@ -87,6 +87,8 @@ public class AnswerCheck : MonoBehaviour
         {
             answer.text = "Wrong!";
             answer.color = new Color32(255, 0,0 ,255);
+            points-=2;
+            score.text = "Score : "+points.ToString();
         }
 
 

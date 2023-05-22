@@ -87,6 +87,8 @@ public class AnswerCheckLevel1 : MonoBehaviour
         else
         {
             answer.text = "Wrong!";
+            points-=1;
+            score.text = "Score : "+points.ToString();
             answer.color = new Color32(255, 0,0 ,255);
         }
 
@@ -97,7 +99,7 @@ public class AnswerCheckLevel1 : MonoBehaviour
                 questions--;
         }
 
-        if(points>=25&&questions==0)
+        if(points>=20&&questions==0)
         {
             SceneManager.LoadSceneAsync("abhiram");
         }
