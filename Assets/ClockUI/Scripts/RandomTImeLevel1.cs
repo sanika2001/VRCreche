@@ -3,28 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class RandomTime : MonoBehaviour
+public class RandomTImeLevel1 : MonoBehaviour
 {
    
     public TMP_Text time;
-     public Material wallMaterial;
+    public Material wallMaterial;
     public Material floorMaterial;
     public int m,h;
 
     void Start()
     {
-         wallMaterial.color = new Color32(7, 107, 105,255);
+        wallMaterial.color = new Color32(68, 51, 150,255);
         floorMaterial.color = new Color32(148, 105, 141,255);
-        string s = RandomHour() +":"+ RandomMinute();
+        string s = RandomHour() +":"+ "00";
         
         time.text = s;
     }
 
-    
-
     string RandomHour()
     {
         h = Random.Range(1, 13);
+        if(h==12)
+            h=1;
         
 
         string hour = h.ToString();
@@ -36,22 +36,6 @@ public class RandomTime : MonoBehaviour
         return hour;
     }
     
-    string RandomMinute()
-    {
-         m = Random.Range(0,12)*5;
-         if(m==0)
-            m=5;
-
-        string minute = m.ToString();
-
-        if(m<10)
-        {
-            minute = "0"+minute;
-        }
-        
-
-        return minute;
-    }
      
 
 }
