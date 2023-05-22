@@ -514,8 +514,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2132759797}
-        m_TargetAssemblyTypeName: AnswerCheck, Assembly-CSharp
+      - m_Target: {fileID: 2132759800}
+        m_TargetAssemblyTypeName: AnswerCheckLevel1, Assembly-CSharp
         m_MethodName: checkAnswer
         m_Mode: 1
         m_Arguments:
@@ -1870,7 +1870,7 @@ GameObject:
   - component: {fileID: 1216398569}
   - component: {fileID: 1216398568}
   - component: {fileID: 1216398567}
-  - component: {fileID: 1216398566}
+  - component: {fileID: 1216398570}
   m_Layer: 0
   m_Name: Time
   m_TagString: Untagged
@@ -1878,23 +1878,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1216398566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1216398565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 812050f208b6e724591cd867a866c6af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: {fileID: 1216398567}
-  wallMaterial: {fileID: 2100000, guid: 7372ebc2b5de24f4c81007ec5f0d3ac2, type: 2}
-  floorMaterial: {fileID: 2100000, guid: f15d96b9ee7fd774ca988e4f9d576b55, type: 2}
-  m: 0
-  h: 0
 --- !u!114 &1216398567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2049,6 +2032,23 @@ RectTransform:
   m_AnchoredPosition: {x: 9.31, y: 0.71}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1216398570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216398565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a7dc22ea5aaacb48b90cda6942afe6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: {fileID: 1216398567}
+  wallMaterial: {fileID: 2100000, guid: 7372ebc2b5de24f4c81007ec5f0d3ac2, type: 2}
+  floorMaterial: {fileID: 2100000, guid: f15d96b9ee7fd774ca988e4f9d576b55, type: 2}
+  m: 0
+  h: 0
 --- !u!1 &1446218018
 GameObject:
   m_ObjectHideFlags: 0
@@ -2535,7 +2535,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level 2
+  m_text: Level 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2907,7 +2907,7 @@ GameObject:
   - component: {fileID: 2132759796}
   - component: {fileID: 2132759799}
   - component: {fileID: 2132759798}
-  - component: {fileID: 2132759797}
+  - component: {fileID: 2132759800}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3039,25 +3039,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f663094d7bcd683408417293de98b364, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2132759797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2132759789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a060087f7cca33746906169282094d6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  M: {fileID: 2132759798}
-  H: {fileID: 2132759799}
-  time: {fileID: 1216398567}
-  answer: {fileID: 1461680930}
-  score: {fileID: 424190471}
-  minuteHand: {fileID: 1683361204}
-  hourHand: {fileID: 1145440608}
 --- !u!114 &2132759798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3087,3 +3068,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hourHand: {fileID: 1145440608}
   hClicks: 0
+--- !u!114 &2132759800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132759789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeef353dbe5656d4b95ad52be1aa2ca7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  M: {fileID: 2132759798}
+  H: {fileID: 2132759799}
+  time: {fileID: 1216398567}
+  answer: {fileID: 1461680930}
+  score: {fileID: 424190471}
+  minuteHand: {fileID: 1683361204}
+  hourHand: {fileID: 1145440608}
