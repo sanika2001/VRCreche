@@ -198,7 +198,7 @@ public class mathproblem : MonoBehaviour
             {
                 rightOrWrong_Text.enabled = true;
                 rightOrWrong_Text.color = Color.black;
-                rightOrWrong_Text.text = ("Sorry! Try again\nRestarting Level 1");
+                rightOrWrong_Text.text = ("Try again\nRestarting Level 1");
                 currentScore = 0;
                 ScoreVal.text = "" + currentScore;
             }
