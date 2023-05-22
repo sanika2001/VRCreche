@@ -18,6 +18,8 @@ public class mathproblem : MonoBehaviour
     public TextMeshProUGUI ScoreVal;
     public TextMeshProUGUI LevelVal;
     public TextMeshProUGUI plus;
+    public RawImage levelupImg;
+    public RawImage VictoryImg;
 
     public List<int> easyMathList = new List<int>();
 
@@ -46,6 +48,7 @@ public class mathproblem : MonoBehaviour
     //color.Add(Arraylist);
      
     public void DisplayMathProblem() {
+        noofQuestions += 1;
         //generate a random numb as 1st and 2nd numb
         randomFirstNumber = Random.Range(0,easyMathList.Count + 1);
         randomSecondNumber = Random.Range(0,easyMathList.Count + 1);
@@ -97,15 +100,33 @@ public class mathproblem : MonoBehaviour
 
     public void ButtonAnswer1(){
         if(currentAnswer == 0){
+
             currentScore += levelWeight;
             ScoreVal.text = "" + currentScore;
-            rightOrWrong_Text.enabled = true;
-            rightOrWrong_Text.color = Color.green;
-            rightOrWrong_Text.text = ("Yay! You got it");
+            
             if (currentScore >= 25 && noofQuestions <= 7 && level == 1)
             {
                 level = 2;
                 LevelVal.text = "" + level;
+                levelupImg.enabled = true;
+             
+            }
+            else if (currentScore >= 60 && noofQuestions <= 15 && level == 2)
+            {
+                VictoryImg.enabled = true;
+            }
+            else if (noofQuestions > 7 && currentScore < 25)
+            {
+                rightOrWrong_Text.enabled = true;
+                rightOrWrong_Text.color = Color.black;
+                rightOrWrong_Text.text = ("Sorry! Try again\nRestarting Level 1");
+                currentScore += levelWeight;
+                ScoreVal.text = "" + currentScore;
+            }
+            else {
+                rightOrWrong_Text.enabled = true;
+                rightOrWrong_Text.color = Color.green;
+                rightOrWrong_Text.text = ("Yay! You got it");
             }
             Invoke("TurnOffText",1);
             Color newColor = new Color(Random.value, Random.value, Random.value, 1.0f);
@@ -117,9 +138,21 @@ public class mathproblem : MonoBehaviour
         else{
             currentScore -= levelsubWeight;
             ScoreVal.text = "" + currentScore;
-            rightOrWrong_Text.enabled = true;
-            rightOrWrong_Text.color = Color.red;
-            rightOrWrong_Text.text = ("incorrect,Try again!");
+            if (noofQuestions > 7 && currentScore < 25)
+            {
+                rightOrWrong_Text.enabled = true;
+                rightOrWrong_Text.color = Color.black;
+                rightOrWrong_Text.text = ("Sorry! Try again\nRestarting Level 1");
+                currentScore += levelWeight;
+                ScoreVal.text = "" + currentScore;
+            }
+            else
+            {
+                rightOrWrong_Text.enabled = true;
+                rightOrWrong_Text.color = Color.red;
+                rightOrWrong_Text.text = ("incorrect,Try again!");
+            }
+           
             Invoke("TurnOffText",1);
         }
     }
@@ -127,14 +160,31 @@ public class mathproblem : MonoBehaviour
         if(currentAnswer == 1){
             currentScore += levelWeight;
             ScoreVal.text = "" + currentScore;
-            rightOrWrong_Text.enabled = true;
-            rightOrWrong_Text.color = Color.green;
-            rightOrWrong_Text.text = ("Yay! You got it");
             if (currentScore >= 25 && noofQuestions <= 7 && level == 1)
             {
                 level = 2;
                 LevelVal.text = "" + level;
-            }else
+                levelupImg.enabled = true;
+              
+            }
+            else if (currentScore >= 60 && noofQuestions <= 15 && level == 2)
+            {
+                VictoryImg.enabled = true;
+            }
+            else if (noofQuestions > 7 && currentScore < 25)
+            {
+                rightOrWrong_Text.enabled = true;
+                rightOrWrong_Text.color = Color.black;
+                rightOrWrong_Text.text = ("Sorry! Try again\nRestarting Level 1");
+                currentScore += levelWeight;
+                ScoreVal.text = "" + currentScore;
+
+            }
+            else {
+                rightOrWrong_Text.enabled = true;
+                rightOrWrong_Text.color = Color.green;
+                rightOrWrong_Text.text = ("Yay! You got it");
+            }
             Invoke("TurnOffText",1);
             Color newColor = new Color(Random.value, Random.value, Random.value, 1.0f);
             wallMaterial.color = newColor;
@@ -144,9 +194,20 @@ public class mathproblem : MonoBehaviour
         else{
             currentScore -= levelsubWeight;
             ScoreVal.text = "" + currentScore;
-            rightOrWrong_Text.enabled = true;
-            rightOrWrong_Text.color = Color.red;
-            rightOrWrong_Text.text = ("incorrect,Try again!");
+            if (noofQuestions > 7 && currentScore < 25)
+            {
+                rightOrWrong_Text.enabled = true;
+                rightOrWrong_Text.color = Color.black;
+                rightOrWrong_Text.text = ("Sorry! Try again\nRestarting Level 1");
+                currentScore = 0;
+                ScoreVal.text = "" + currentScore;
+            }
+            else {
+                rightOrWrong_Text.enabled = true;
+                rightOrWrong_Text.color = Color.red;
+                rightOrWrong_Text.text = ("incorrect,Try again!");
+            }
+            
             Invoke("TurnOffText",1);
         }
     }
@@ -156,13 +217,30 @@ public class mathproblem : MonoBehaviour
         {
             currentScore += levelWeight;
             ScoreVal.text = "" + currentScore;
-            rightOrWrong_Text.enabled = true;
-            rightOrWrong_Text.color = Color.green;
-            rightOrWrong_Text.text = ("Yay! You got it");
+
             if (currentScore >= 25 && noofQuestions <= 7 && level == 1)
             {
                 level = 2;
                 LevelVal.text = "" + level;
+                levelupImg.enabled = true;
+
+            }
+            else if (currentScore >= 60 && noofQuestions <= 15 && level == 2)
+            {
+                VictoryImg.enabled = true;
+            }
+            else if (noofQuestions > 7 && currentScore < 25) {
+                rightOrWrong_Text.enabled = true;
+                rightOrWrong_Text.color = Color.black;
+                rightOrWrong_Text.text = ("Sorry! Try again\nRestarting Level 1");
+                currentScore = 0;
+                ScoreVal.text = "" + currentScore;
+            }
+            else
+            {
+                rightOrWrong_Text.enabled = true;
+                rightOrWrong_Text.color = Color.green;
+                rightOrWrong_Text.text = ("Yay! You got it");
             }
             Invoke("TurnOffText", 1);
             Color newColor = new Color(Random.value, Random.value, Random.value, 1.0f);
@@ -174,9 +252,20 @@ public class mathproblem : MonoBehaviour
         {
             currentScore -= levelsubWeight;
             ScoreVal.text = "" + currentScore;
-            rightOrWrong_Text.enabled = true;
-            rightOrWrong_Text.color = Color.red;
-            rightOrWrong_Text.text = ("incorrect,Try again!");
+            if (noofQuestions > 7 && currentScore < 25)
+            {
+                rightOrWrong_Text.enabled = true;
+                rightOrWrong_Text.color = Color.black;
+                rightOrWrong_Text.text = ("Sorry! Try again\nRestarting Level 1");
+                currentScore = 0;
+                ScoreVal.text = "" + currentScore;
+            }
+            else {
+                rightOrWrong_Text.enabled = true;
+                rightOrWrong_Text.color = Color.red;
+                rightOrWrong_Text.text = ("incorrect,Try again!");
+            }
+           
             Invoke("TurnOffText", 1);
         }
     }
@@ -184,6 +273,7 @@ public class mathproblem : MonoBehaviour
 
     public void DisplayMathProblemLev2()
     {
+        levelupImg.enabled = false;
         //generate a random numb as 1st and 2nd numb
         randomFirstNumber = Random.Range(0, easyMathList.Count + 1);
         randomSecondNumber = Random.Range(0, easyMathList.Count + 1);
@@ -248,7 +338,6 @@ public class mathproblem : MonoBehaviour
             rightOrWrong_Text.enabled = false;
         if (level == 1)
         {
-            noofQuestions += 1;
             DisplayMathProblem();
         }
         else
@@ -263,8 +352,9 @@ public class mathproblem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        noofQuestions += 1;
-            DisplayMathProblem();
+        levelupImg.enabled = false;
+        VictoryImg.enabled = false;
+        DisplayMathProblem();
     }
 
     // Update is called once per frame
