@@ -58,7 +58,7 @@ public class CheckShape : MonoBehaviour
        }
        else
        {
-        answer.text = "Sorry, wrong answer.";
+        answer.text = "Sorry, wrong answer";
         answer.color = new Color32(255, 0,0 ,255);
        }
 
