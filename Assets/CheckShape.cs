@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SceneManagement;
 
-public class ShapeScript : MonoBehaviour
+public class CheckShape : MonoBehaviour
 {
-    public TMP_Text question;
     // Start is called before the first frame update
+    public TMP_Text question;
+    public TMP_Text answer;
+    public TMP_Text score;
     
+    int questions = 7;
+    string shape;
 
     void displayQuestion() {
         var My_dict1  = new Dictionary<int, string>()
@@ -35,6 +37,37 @@ public class ShapeScript : MonoBehaviour
         displayQuestion();
     }
 
-    // Update is called once per frame
-    
+     void OnMouseDown()
+     {
+       
+       ShapeCheck();
+        
+     }
+
+     void ShapeCheck()
+     {
+        shape = question.text.Substring(question.text.LastIndexOf(' ') + 1);
+
+       if(shape==gameObject.tag)
+       {
+        answer.text ="You got it right!";
+        answer.color = new Color32(0, 255, 0, 255);
+        
+        score.text = (int.Parse(score.text)*-1).ToString();
+
+       }
+       else
+       {
+        answer.text = "Sorry, wrong answer.";
+        answer.color = new Color32(255, 0,0 ,255);
+       }
+
+       if(questions!=0)
+       {
+        displayQuestion();
+        //ShapeCheck();
+        questions--;
+       }
+     }
+   
 }
