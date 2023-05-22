@@ -23,4 +23,11 @@ public class HourChange : MonoBehaviour
         hourHand.Rotate(Vector3.forward, -30);
         
 	}
+
+    public void reset()
+    {
+        hourHand.Rotate(Vector3.forward, hClicks*30);
+
+        hClicks =0;
+    }
 }

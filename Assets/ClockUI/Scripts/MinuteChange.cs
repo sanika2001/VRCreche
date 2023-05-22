@@ -52,6 +52,13 @@ public class MinuteChange : MonoBehaviour
         hourHand.Rotate(Vector3.forward, -2.5f);
         
 	}
+    public void reset()
+    {
+        minuteHand.Rotate(Vector3.forward, mClicks*30);
+        hourHand.Rotate(Vector3.forward, mClicks*2.5f);
+        mClicks=0;
+
+    }
 
 
 }

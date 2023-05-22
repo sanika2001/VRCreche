@@ -2,23 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
-public class AnswerCheck : MonoBehaviour
+public class AnswerCheckLevel1 : MonoBehaviour
 {
-    
+    // Start is called before the first frame update
     public MinuteChange M;
     public HourChange H;
     public TMP_Text time;
     public TMP_Text answer;
     public TMP_Text score;
-    int points = 0;
-    //to reset the hands
+
     private float SceneWidth;
     private Vector3 PressP;
     private Quaternion StartRotation;
     [SerializeField] private Transform minuteHand, hourHand;
 
     int questions = 7;
+    int points = 0;
 
 
 
@@ -80,7 +81,7 @@ public class AnswerCheck : MonoBehaviour
         {
             answer.text = "Correct!";
             answer.color = new Color32(0, 255, 0, 255);
-            points+=10;
+            points+=5;
             score.text = "Score : "+points.ToString();
         }
         else
@@ -90,10 +91,19 @@ public class AnswerCheck : MonoBehaviour
         }
 
 
-        if(questions>1)
+        if(questions>=1)
         {
                 time.text = RandomTime();
                 questions--;
+        }
+
+        if(points>=25&&questions==0)
+        {
+            SceneManager.LoadSceneAsync("abhiram");
+        }
+        else if(questions==0)
+        {
+            SceneManager.LoadSceneAsync("ClockLev1");
         }
             
        
@@ -101,16 +111,16 @@ public class AnswerCheck : MonoBehaviour
 
     string RandomTime()
     {
-        string s = RandomHour() +":"+ RandomMinute();
+       string s = RandomHour() +":"+ "00";
 
-        hourHand.Rotate(Vector3.forward, H.hClicks*30); //resetting position of hour dial 
+       hourHand.Rotate(Vector3.forward, H.hClicks*30); //resetting position of hour dial 
 
-        minuteHand.Rotate(Vector3.forward, M.mClicks*30); //resetting minute hands
-        hourHand.Rotate(Vector3.forward, M.mClicks*2.5f);
+       minuteHand.Rotate(Vector3.forward, M.mClicks*30); //resetting minute hands
+       hourHand.Rotate(Vector3.forward, M.mClicks*2.5f);
 
-        M.mClicks=0;  //making number of minute clicks on the clock zero
+       M.mClicks=0;  //making number of minute clicks on the clock zero
 
-        H.hClicks =0; //making number of hour clicks on the clock zero
+       H.hClicks =0; //making number of hour clicks on the clock zero
         
         return s;
     }
@@ -120,6 +130,9 @@ public class AnswerCheck : MonoBehaviour
     string RandomHour()
     {
         int h = Random.Range(1, 13);
+
+        if(h==12)
+            h=1;
         
 
         string hour = h.ToString();
@@ -131,20 +144,5 @@ public class AnswerCheck : MonoBehaviour
         return hour;
     }
     
-    string RandomMinute()
-    {
-         int m = Random.Range(0,12)*5;
-         if(m==0)
-            m=5;
 
-        string minute = m.ToString();
-
-        if(m<10)
-        {
-            minute = "0"+minute;
-        }
-        
-
-        return minute;
-    }
 }
