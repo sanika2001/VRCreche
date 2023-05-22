@@ -19,6 +19,7 @@ public class mathproblem : MonoBehaviour
     public TextMeshProUGUI LevelVal;
     public TextMeshProUGUI plus;
     public RawImage levelupImg;
+    public RawImage VictoryImg;
 
     public List<int> easyMathList = new List<int>();
 
@@ -47,6 +48,7 @@ public class mathproblem : MonoBehaviour
     //color.Add(Arraylist);
      
     public void DisplayMathProblem() {
+        noofQuestions += 1;
         //generate a random numb as 1st and 2nd numb
         randomFirstNumber = Random.Range(0,easyMathList.Count + 1);
         randomSecondNumber = Random.Range(0,easyMathList.Count + 1);
@@ -109,6 +111,18 @@ public class mathproblem : MonoBehaviour
                 levelupImg.enabled = true;
              
             }
+            else if (currentScore >= 60 && noofQuestions <= 15 && level == 2)
+            {
+                VictoryImg.enabled = true;
+            }
+            else if (noofQuestions > 7 && currentScore < 25)
+            {
+                rightOrWrong_Text.enabled = true;
+                rightOrWrong_Text.color = Color.black;
+                rightOrWrong_Text.text = ("Sorry! Try again\nRestarting Level 1");
+                currentScore += levelWeight;
+                ScoreVal.text = "" + currentScore;
+            }
             else {
                 rightOrWrong_Text.enabled = true;
                 rightOrWrong_Text.color = Color.green;
@@ -124,9 +138,21 @@ public class mathproblem : MonoBehaviour
         else{
             currentScore -= levelsubWeight;
             ScoreVal.text = "" + currentScore;
-            rightOrWrong_Text.enabled = true;
-            rightOrWrong_Text.color = Color.red;
-            rightOrWrong_Text.text = ("incorrect,Try again!");
+            if (noofQuestions > 7 && currentScore < 25)
+            {
+                rightOrWrong_Text.enabled = true;
+                rightOrWrong_Text.color = Color.black;
+                rightOrWrong_Text.text = ("Sorry! Try again\nRestarting Level 1");
+                currentScore += levelWeight;
+                ScoreVal.text = "" + currentScore;
+            }
+            else
+            {
+                rightOrWrong_Text.enabled = true;
+                rightOrWrong_Text.color = Color.red;
+                rightOrWrong_Text.text = ("incorrect,Try again!");
+            }
+           
             Invoke("TurnOffText",1);
         }
     }
@@ -140,6 +166,19 @@ public class mathproblem : MonoBehaviour
                 LevelVal.text = "" + level;
                 levelupImg.enabled = true;
               
+            }
+            else if (currentScore >= 60 && noofQuestions <= 15 && level == 2)
+            {
+                VictoryImg.enabled = true;
+            }
+            else if (noofQuestions > 7 && currentScore < 25)
+            {
+                rightOrWrong_Text.enabled = true;
+                rightOrWrong_Text.color = Color.black;
+                rightOrWrong_Text.text = ("Sorry! Try again\nRestarting Level 1");
+                currentScore += levelWeight;
+                ScoreVal.text = "" + currentScore;
+
             }
             else {
                 rightOrWrong_Text.enabled = true;
@@ -155,9 +194,20 @@ public class mathproblem : MonoBehaviour
         else{
             currentScore -= levelsubWeight;
             ScoreVal.text = "" + currentScore;
-            rightOrWrong_Text.enabled = true;
-            rightOrWrong_Text.color = Color.red;
-            rightOrWrong_Text.text = ("incorrect,Try again!");
+            if (noofQuestions > 7 && currentScore < 25)
+            {
+                rightOrWrong_Text.enabled = true;
+                rightOrWrong_Text.color = Color.black;
+                rightOrWrong_Text.text = ("Sorry! Try again\nRestarting Level 1");
+                currentScore = 0;
+                ScoreVal.text = "" + currentScore;
+            }
+            else {
+                rightOrWrong_Text.enabled = true;
+                rightOrWrong_Text.color = Color.red;
+                rightOrWrong_Text.text = ("incorrect,Try again!");
+            }
+            
             Invoke("TurnOffText",1);
         }
     }
@@ -173,9 +223,21 @@ public class mathproblem : MonoBehaviour
                 level = 2;
                 LevelVal.text = "" + level;
                 levelupImg.enabled = true;
-               
+
             }
-            else {
+            else if (currentScore >= 60 && noofQuestions <= 15 && level == 2)
+            {
+                VictoryImg.enabled = true;
+            }
+            else if (noofQuestions > 7 && currentScore < 25) {
+                rightOrWrong_Text.enabled = true;
+                rightOrWrong_Text.color = Color.black;
+                rightOrWrong_Text.text = ("Sorry! Try again\nRestarting Level 1");
+                currentScore = 0;
+                ScoreVal.text = "" + currentScore;
+            }
+            else
+            {
                 rightOrWrong_Text.enabled = true;
                 rightOrWrong_Text.color = Color.green;
                 rightOrWrong_Text.text = ("Yay! You got it");
@@ -190,9 +252,20 @@ public class mathproblem : MonoBehaviour
         {
             currentScore -= levelsubWeight;
             ScoreVal.text = "" + currentScore;
-            rightOrWrong_Text.enabled = true;
-            rightOrWrong_Text.color = Color.red;
-            rightOrWrong_Text.text = ("incorrect,Try again!");
+            if (noofQuestions > 7 && currentScore < 25)
+            {
+                rightOrWrong_Text.enabled = true;
+                rightOrWrong_Text.color = Color.black;
+                rightOrWrong_Text.text = ("Sorry! Try again\nRestarting Level 1");
+                currentScore = 0;
+                ScoreVal.text = "" + currentScore;
+            }
+            else {
+                rightOrWrong_Text.enabled = true;
+                rightOrWrong_Text.color = Color.red;
+                rightOrWrong_Text.text = ("incorrect,Try again!");
+            }
+           
             Invoke("TurnOffText", 1);
         }
     }
@@ -265,7 +338,6 @@ public class mathproblem : MonoBehaviour
             rightOrWrong_Text.enabled = false;
         if (level == 1)
         {
-            noofQuestions += 1;
             DisplayMathProblem();
         }
         else
@@ -281,8 +353,8 @@ public class mathproblem : MonoBehaviour
     void Start()
     {
         levelupImg.enabled = false;
-        noofQuestions += 1;
-            DisplayMathProblem();
+        VictoryImg.enabled = false;
+        DisplayMathProblem();
     }
 
     // Update is called once per frame
