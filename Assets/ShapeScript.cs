@@ -21,7 +21,7 @@ public class ShapeScript : MonoBehaviour
                        };
 
     public void displayQuestion() {
-        randomNumber = Random.Range(0, 6);
+        //public int randomNumber = Random.Range(0, 6);
 
     }
 
