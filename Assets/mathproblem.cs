@@ -97,6 +97,7 @@ public class mathproblem : MonoBehaviour
 
     public void ButtonAnswer1(){
         if(currentAnswer == 0){
+
             currentScore += levelWeight;
             ScoreVal.text = "" + currentScore;
             rightOrWrong_Text.enabled = true;
