@@ -15,14 +15,14 @@ public class BeginGame : MonoBehaviour
         SceneManager.LoadSceneAsync("ArithPlay");
     }
     
-    public void Alpha_Game()
+    public void Shape_Game()
     {
         SceneManager.LoadSceneAsync("SampleScene");
     }
 
-    public void Alpha_Play()
+    public void Shape_Play()
     {
-        SceneManager.LoadSceneAsync("AlphaPlay");
+        SceneManager.LoadSceneAsync("ShapePlay");
     }
     
     public void Arith_Game()
