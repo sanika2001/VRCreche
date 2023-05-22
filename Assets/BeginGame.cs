@@ -37,7 +37,7 @@ public class BeginGame : MonoBehaviour
    
     public void Time_Game()
     {
-        SceneManager.LoadSceneAsync("abhiram");
+        SceneManager.LoadSceneAsync("ClockLev1");
     }
 
     public void Quit_App()
