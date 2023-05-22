@@ -17,7 +17,7 @@ public class BeginGame : MonoBehaviour
     
     public void Shape_Game()
     {
-        SceneManager.LoadSceneAsync("SampleScene");
+        SceneManager.LoadSceneAsync("shapeGame");
     }
 
     public void Shape_Play()

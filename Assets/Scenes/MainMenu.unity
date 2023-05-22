@@ -1778,7 +1778,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1517678141}
         m_TargetAssemblyTypeName: BeginGame, Assembly-CSharp
-        m_MethodName: Alpha_Play
+        m_MethodName: Shape_Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
