@@ -3,17 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - music
-  - arc
-  - donut
-  - circle
-  - heart
-  - pie
-  - polygon
-  - rectangle
-  - triangle
-  - pentagon
+  tags: []
   layers:
   - Default
   - TransparentFX

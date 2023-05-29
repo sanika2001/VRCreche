@@ -52,8 +52,6 @@ public class CheckShape : MonoBehaviour
        {
         answer.text ="You got it right!";
         answer.color = new Color32(0, 255, 0, 255);
-
-        BeginGame.score+=5;
         
         score.text = (int.Parse(score.text)*-1).ToString();
 
@@ -61,7 +59,6 @@ public class CheckShape : MonoBehaviour
        else
        {
         answer.text = "Sorry, wrong answer";
-        BeginGame.score -= 1;
         answer.color = new Color32(255, 0,0 ,255);
        }
 

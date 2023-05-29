@@ -5,13 +5,13 @@ using TMPro;
 
 public class AnswerCheck : MonoBehaviour
 {
-    //public static int points = 0;
+    
     public MinuteChange M;
     public HourChange H;
     public TMP_Text time;
     public TMP_Text answer;
     public TMP_Text score;
-    
+    int points = 0;
     //to reset the hands
     private float SceneWidth;
     private Vector3 PressP;
@@ -21,10 +21,7 @@ public class AnswerCheck : MonoBehaviour
     int questions = 7;
 
 
-    public void Start()
-    {
-        score.text = "Score : "+BeginGame.score.ToString();
-    }
+
     public void checkAnswer()
     {
         int mClick = M.mClicks;
@@ -83,15 +80,15 @@ public class AnswerCheck : MonoBehaviour
         {
             answer.text = "Correct!";
             answer.color = new Color32(0, 255, 0, 255);
-            BeginGame.score+=10;
-            score.text = "Score : "+BeginGame.score.ToString();
+            points+=10;
+            score.text = "Score : "+points.ToString();
         }
         else
         {
             answer.text = "Wrong!";
             answer.color = new Color32(255, 0,0 ,255);
-            BeginGame.score-=2;
-            score.text = "Score : "+BeginGame.score.ToString();
+            points-=2;
+            score.text = "Score : "+points.ToString();
         }
 
 

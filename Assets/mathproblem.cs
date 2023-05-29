@@ -102,7 +102,6 @@ public class mathproblem : MonoBehaviour
         if(currentAnswer == 0){
 
             currentScore += levelWeight;
-            BeginGame.score += levelWeight;
             ScoreVal.text = "" + currentScore;
             
             if (currentScore >= 25 && noofQuestions <= 7 && level == 1)
@@ -138,7 +137,6 @@ public class mathproblem : MonoBehaviour
         }
         else{
             currentScore -= levelsubWeight;
-            BeginGame.score -= levelsubWeight;
             ScoreVal.text = "" + currentScore;
             if (noofQuestions > 7 && currentScore < 25)
             {
@@ -146,7 +144,6 @@ public class mathproblem : MonoBehaviour
                 rightOrWrong_Text.color = Color.black;
                 rightOrWrong_Text.text = ("Sorry! Try again\nRestarting Level 1");
                 currentScore += levelWeight;
-                BeginGame.score += levelWeight;
                 ScoreVal.text = "" + currentScore;
             }
             else
@@ -162,7 +159,6 @@ public class mathproblem : MonoBehaviour
     public void ButtonAnswer2(){
         if(currentAnswer == 1){
             currentScore += levelWeight;
-            BeginGame.score += levelWeight;
             ScoreVal.text = "" + currentScore;
             if (currentScore >= 25 && noofQuestions <= 7 && level == 1)
             {
@@ -197,7 +193,6 @@ public class mathproblem : MonoBehaviour
         }
         else{
             currentScore -= levelsubWeight;
-            BeginGame.score -= levelsubWeight;
             ScoreVal.text = "" + currentScore;
             if (noofQuestions > 7 && currentScore < 25)
             {
@@ -205,7 +200,6 @@ public class mathproblem : MonoBehaviour
                 rightOrWrong_Text.color = Color.black;
                 rightOrWrong_Text.text = ("Try again\nRestarting Level 1");
                 currentScore = 0;
-                BeginGame.score = 0;
                 ScoreVal.text = "" + currentScore;
             }
             else {
@@ -222,7 +216,6 @@ public class mathproblem : MonoBehaviour
         if (currentAnswer == 2)
         {
             currentScore += levelWeight;
-            BeginGame.score += levelWeight;
             ScoreVal.text = "" + currentScore;
 
             if (currentScore >= 25 && noofQuestions <= 7 && level == 1)
@@ -241,7 +234,6 @@ public class mathproblem : MonoBehaviour
                 rightOrWrong_Text.color = Color.black;
                 rightOrWrong_Text.text = ("Sorry! Try again\nRestarting Level 1");
                 currentScore = 0;
-                BeginGame.score = 0;
                 ScoreVal.text = "" + currentScore;
             }
             else
@@ -259,7 +251,6 @@ public class mathproblem : MonoBehaviour
         else
         {
             currentScore -= levelsubWeight;
-            BeginGame.score -= levelsubWeight;
             ScoreVal.text = "" + currentScore;
             if (noofQuestions > 7 && currentScore < 25)
             {
@@ -267,7 +258,6 @@ public class mathproblem : MonoBehaviour
                 rightOrWrong_Text.color = Color.black;
                 rightOrWrong_Text.text = ("Sorry! Try again\nRestarting Level 1");
                 currentScore = 0;
-                BeginGame.score = 0;
                 ScoreVal.text = "" + currentScore;
             }
             else {
