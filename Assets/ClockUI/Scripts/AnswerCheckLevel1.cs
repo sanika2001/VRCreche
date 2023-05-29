@@ -19,7 +19,6 @@ public class AnswerCheckLevel1 : MonoBehaviour
     [SerializeField] private Transform minuteHand, hourHand;
 
     int questions = 7;
-    int points = 0;
 
 
 
@@ -81,14 +80,14 @@ public class AnswerCheckLevel1 : MonoBehaviour
         {
             answer.text = "Correct!";
             answer.color = new Color32(0, 255, 0, 255);
-            points+=5;
-            score.text = "Score : "+points.ToString();
+            BeginGame.score+=5;
+            score.text = "Score : "+ BeginGame.score.ToString();
         }
         else
         {
             answer.text = "Wrong!";
-            points-=1;
-            score.text = "Score : "+points.ToString();
+            BeginGame.score-=1;
+            score.text = "Score : "+BeginGame.score.ToString();
             answer.color = new Color32(255, 0,0 ,255);
         }
 
@@ -99,7 +98,7 @@ public class AnswerCheckLevel1 : MonoBehaviour
                 questions--;
         }
 
-        if(points>=20&&questions==0)
+        if(BeginGame.score>=20&&questions==0)
         {
             SceneManager.LoadSceneAsync("abhiram");
         }
