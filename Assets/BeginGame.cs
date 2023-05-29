@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class BeginGame : MonoBehaviour
 {
+    public static int score = 0;
     public void MainMenu()
     {
         SceneManager.LoadSceneAsync("MainMenu");

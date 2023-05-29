@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
+
 public class AnswerCheckLevel1 : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -19,10 +20,12 @@ public class AnswerCheckLevel1 : MonoBehaviour
     [SerializeField] private Transform minuteHand, hourHand;
 
     int questions = 7;
-    int points = 0;
+    
+    public static int point = 0;
+    
+  
 
-
-
+   
     public void checkAnswer()
     {
         int mClick = M.mClicks;
@@ -81,14 +84,15 @@ public class AnswerCheckLevel1 : MonoBehaviour
         {
             answer.text = "Correct!";
             answer.color = new Color32(0, 255, 0, 255);
-            points+=5;
-            score.text = "Score : "+points.ToString();
+            //point+=5;
+            BeginGame.score+=5;
+            score.text = "Score : "+BeginGame.score.ToString();
         }
         else
         {
             answer.text = "Wrong!";
-            points-=1;
-            score.text = "Score : "+points.ToString();
+            point-=1;
+            score.text = "Score : "+BeginGame.score.ToString();
             answer.color = new Color32(255, 0,0 ,255);
         }
 
@@ -99,7 +103,7 @@ public class AnswerCheckLevel1 : MonoBehaviour
                 questions--;
         }
 
-        if(points>=20&&questions==0)
+        if(BeginGame.score>=20&&questions==0)
         {
             SceneManager.LoadSceneAsync("abhiram");
         }
