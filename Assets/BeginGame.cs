@@ -48,6 +48,11 @@ public class BeginGame : MonoBehaviour
         SceneManager.LoadSceneAsync("ClockLev1");
     }
 
+    public void ResultScreen()
+    {
+        SceneManager.LoadSceneAsync("ResultScreen");
+    }
+
     public void Quit_App()
     {
         score = 0;
