@@ -181,6 +181,7 @@ public class mathproblem : MonoBehaviour
                 rightOrWrong_Text.color = Color.black;
                 rightOrWrong_Text.text = ("Sorry! Try again\nRestarting Level 1");
                 currentScore += levelWeight;
+                BeginGame.score += levelWeight;
                 ScoreVal.text = "" + currentScore;
 
             }
