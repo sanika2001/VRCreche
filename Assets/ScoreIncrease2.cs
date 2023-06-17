@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ScoreIncrease : MonoBehaviour
+public class ScoreIncrease2 : MonoBehaviour
 {
 
     public TMP_Text score;
@@ -14,9 +14,12 @@ public class ScoreIncrease : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         wallMaterial.color = new Color32(7, 107, 105,255);
+         wallMaterial.color = new Color32(68, 51, 150,255);
          floorMaterial.color = new Color32(148, 105, 141,255);
          score.text = BeginGame.score.ToString();
 
     }
 }
+
+
+ 
