@@ -101,8 +101,8 @@ public class mathproblem : MonoBehaviour
     }
 
     public void ButtonAnswer1(){
-        if(currentAnswer == 0){
-
+        
+        if (currentAnswer == 0){
             currentScore += levelWeight;
             BeginGame.score += levelWeight;
             ScoreVal.text = "" + currentScore;
@@ -112,14 +112,13 @@ public class mathproblem : MonoBehaviour
             if (correctAnswers >= 5 && noofQuestions <= 6 && level == 1)
             {
                 level = 2;
-                correctAnswers = 0;
                 LevelVal.text = "" + level;
                 levelupImg.enabled = true;
              
             }
-            else if (correctAnswers>=5 && noofQuestions <= 13 && level == 2)
+            else if (noofQuestions == 13 && level == 2)
             {
-           
+                
                 SceneManager.LoadSceneAsync("ResultScreen");
             }
             else if (noofQuestions > 7 && currentScore < 25)
@@ -129,6 +128,8 @@ public class mathproblem : MonoBehaviour
                 rightOrWrong_Text.text = ("Sorry! Try again\nRestarting Level 1");
                 currentScore += levelWeight;
                 ScoreVal.text = "" + currentScore;
+                correctAnswers = 0;
+                totalScore = 0;
             }
             else {
                 rightOrWrong_Text.enabled = true;
@@ -166,8 +167,8 @@ public class mathproblem : MonoBehaviour
         }
     }
     public void ButtonAnswer2(){
-
-        if(currentAnswer == 1){
+        
+        if (currentAnswer == 1){
             currentScore += levelWeight;
             BeginGame.score += levelWeight;
             ScoreVal.text = "" + currentScore;
@@ -177,12 +178,12 @@ public class mathproblem : MonoBehaviour
             if (correctAnswers>=5 && noofQuestions <= 6 && level == 1)
             {
                 level = 2;
-                correctAnswers = 0;
+                
                 LevelVal.text = "" + level;
                 levelupImg.enabled = true;
               
             }
-            else if (correctAnswers >= 5 && noofQuestions <= 13 && level == 2)
+            else if ( noofQuestions == 13 && level == 2)
             {
                 
                 SceneManager.LoadSceneAsync("ResultScreen");
@@ -194,7 +195,8 @@ public class mathproblem : MonoBehaviour
                 rightOrWrong_Text.text = ("Sorry! Try again\nRestarting Level 1");
                 currentScore += levelWeight;
                 ScoreVal.text = "" + currentScore;
-
+                correctAnswers = 0;
+                totalScore = 0;
             }
             else {
                 rightOrWrong_Text.enabled = true;
@@ -231,6 +233,7 @@ public class mathproblem : MonoBehaviour
     }
     public void ButtonAnswer3()
     {
+        
         if (currentAnswer == 2)
         {
             currentScore += levelWeight;
@@ -242,14 +245,14 @@ public class mathproblem : MonoBehaviour
             if (correctAnswers >= 5 && noofQuestions <= 6 && level == 1)
             {
                 level = 2;
-                correctAnswers = 0;
+                
                 LevelVal.text = "" + level;
                 levelupImg.enabled = true;
                 
             }
-            else if (correctAnswers >= 5 && noofQuestions <= 13 && level == 2)
+            else if (noofQuestions == 13 && level == 2)
             {
-               
+                
                 SceneManager.LoadSceneAsync("ResultScreen");
             }
             else if (noofQuestions > 7 && currentScore < 25) {
@@ -259,6 +262,8 @@ public class mathproblem : MonoBehaviour
                 currentScore = 0;
                 BeginGame.score = 0;
                 ScoreVal.text = "" + currentScore;
+                correctAnswers = 0;
+                totalScore = 0;
             }
             else
             {
@@ -299,7 +304,9 @@ public class mathproblem : MonoBehaviour
 
     public void DisplayMathProblemLev2()
     {
+
         levelupImg.enabled = false;
+        noofQuestions += 1;
         //generate a random numb as 1st and 2nd numb
         randomFirstNumber = Random.Range(0, easyMathList.Count + 1);
         randomSecondNumber = Random.Range(0, easyMathList.Count + 1);
