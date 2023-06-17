@@ -39,6 +39,8 @@ public class mathproblem : MonoBehaviour
     int level = 1;
     int levelWeight = 5;
     int levelsubWeight = 1;
+    int correctAnswers = 0;
+    int totalScore = 0;
     
     public int currentAnswer;
     public TextMeshProUGUI rightOrWrong_Text;
@@ -104,17 +106,21 @@ public class mathproblem : MonoBehaviour
             currentScore += levelWeight;
             BeginGame.score += levelWeight;
             ScoreVal.text = "" + currentScore;
+            totalScore += levelWeight;
+            correctAnswers += 1;
             
-            if (currentScore >= 25 && noofQuestions <= 7 && level == 1)
+            if (correctAnswers >= 5 && noofQuestions <= 6 && level == 1)
             {
                 level = 2;
+                correctAnswers = 0;
                 LevelVal.text = "" + level;
                 levelupImg.enabled = true;
              
             }
-            else if (currentScore >= 60 && noofQuestions <= 15 && level == 2)
+            else if (correctAnswers>=5 && noofQuestions <= 13 && level == 2)
             {
-                VictoryImg.enabled = true;
+           
+                SceneManager.LoadSceneAsync("ResultScreen");
             }
             else if (noofQuestions > 7 && currentScore < 25)
             {
@@ -160,20 +166,26 @@ public class mathproblem : MonoBehaviour
         }
     }
     public void ButtonAnswer2(){
+
         if(currentAnswer == 1){
             currentScore += levelWeight;
             BeginGame.score += levelWeight;
             ScoreVal.text = "" + currentScore;
-            if (currentScore >= 25 && noofQuestions <= 7 && level == 1)
+            totalScore += levelWeight;
+            correctAnswers += 1;
+
+            if (correctAnswers>=5 && noofQuestions <= 6 && level == 1)
             {
                 level = 2;
+                correctAnswers = 0;
                 LevelVal.text = "" + level;
                 levelupImg.enabled = true;
               
             }
-            else if (currentScore >= 60 && noofQuestions <= 15 && level == 2)
+            else if (correctAnswers >= 5 && noofQuestions <= 13 && level == 2)
             {
-                VictoryImg.enabled = true;
+                
+                SceneManager.LoadSceneAsync("ResultScreen");
             }
             else if (noofQuestions > 7 && currentScore < 25)
             {
@@ -224,17 +236,21 @@ public class mathproblem : MonoBehaviour
             currentScore += levelWeight;
             BeginGame.score += levelWeight;
             ScoreVal.text = "" + currentScore;
+            totalScore += levelWeight;
+            correctAnswers += 1;
 
-            if (currentScore >= 25 && noofQuestions <= 7 && level == 1)
+            if (correctAnswers >= 5 && noofQuestions <= 6 && level == 1)
             {
                 level = 2;
+                correctAnswers = 0;
                 LevelVal.text = "" + level;
                 levelupImg.enabled = true;
-
+                
             }
-            else if (currentScore >= 60 && noofQuestions <= 15 && level == 2)
+            else if (correctAnswers >= 5 && noofQuestions <= 13 && level == 2)
             {
-                VictoryImg.enabled = true;
+               
+                SceneManager.LoadSceneAsync("ResultScreen");
             }
             else if (noofQuestions > 7 && currentScore < 25) {
                 rightOrWrong_Text.enabled = true;
