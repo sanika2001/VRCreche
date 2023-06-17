@@ -18,7 +18,7 @@ public class AnswerCheckLevel1 : MonoBehaviour
     private Quaternion StartRotation;
     [SerializeField] private Transform minuteHand, hourHand;
 
-    int questions = 7;
+    int questions = 6;
 
 
 

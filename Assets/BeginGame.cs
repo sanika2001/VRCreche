@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class BeginGame : MonoBehaviour
 {
     public static int score = 0;
+    public static int shapeLevel1Q = 6;
+    public static int shapeLevel2Q = 7;
     public void MainMenu()
     {
         score = 0;

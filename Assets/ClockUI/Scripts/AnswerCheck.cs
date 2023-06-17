@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class AnswerCheck : MonoBehaviour
 {
@@ -102,6 +103,10 @@ public class AnswerCheck : MonoBehaviour
         {
                 time.text = RandomTime();
                 questions--;
+        }
+        else
+        {
+            SceneManager.LoadSceneAsync("ResultScreen");
         }
             
        

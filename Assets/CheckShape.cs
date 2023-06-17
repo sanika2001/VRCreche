@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class CheckShape : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class CheckShape : MonoBehaviour
     public TMP_Text answer;
     public TMP_Text score;
     
-    int questions = 7;
+    
     string shape;
 
     void displayQuestion() {
@@ -39,7 +40,7 @@ public class CheckShape : MonoBehaviour
 
      void OnMouseDown()
      {
-       
+       if(BeginGame.shapeLevel1Q!=0)
        ShapeCheck();
         
      }
@@ -65,11 +66,21 @@ public class CheckShape : MonoBehaviour
         answer.color = new Color32(255, 0,0 ,255);
        }
 
-       if(questions!=0)
+       if(BeginGame.shapeLevel1Q!=0)
        {
         displayQuestion();
         //ShapeCheck();
-        questions--;
+        BeginGame.shapeLevel1Q--;
+       }
+       if(BeginGame.shapeLevel1Q==0 && BeginGame.score>20)
+       {
+        SceneManager.LoadSceneAsync("ShapeLev2");
+       }
+       else if(BeginGame.shapeLevel1Q==0)
+       {
+        BeginGame.shapeLevel1Q = 6;
+        BeginGame.score = 0;
+        SceneManager.LoadSceneAsync("shapeGame");
        }
      }
    
