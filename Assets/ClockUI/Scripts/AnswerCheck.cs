@@ -89,6 +89,7 @@ public class AnswerCheck : MonoBehaviour
             answer.color = new Color32(0, 255, 0, 255);
             BeginGame.score+=10;
             score.text = "Score : "+BeginGame.score.ToString();
+            Invoke("reset",1);
         }
         else
         {
@@ -96,6 +97,7 @@ public class AnswerCheck : MonoBehaviour
             answer.color = new Color32(255, 0,0 ,255);
             BeginGame.score-=2;
             score.text = "Score : "+BeginGame.score.ToString();
+            Invoke("reset",1);
         }
 
 
@@ -111,6 +113,11 @@ public class AnswerCheck : MonoBehaviour
             
        
     }
+
+     void reset()
+     {
+        answer.text = "";
+     }
 
     string RandomTime()
     {

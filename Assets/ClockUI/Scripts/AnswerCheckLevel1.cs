@@ -82,6 +82,7 @@ public class AnswerCheckLevel1 : MonoBehaviour
             answer.color = new Color32(0, 255, 0, 255);
             BeginGame.score+=5;
             score.text = "Score : "+ BeginGame.score.ToString();
+            Invoke("reset",1);
         }
         else
         {
@@ -89,6 +90,7 @@ public class AnswerCheckLevel1 : MonoBehaviour
             BeginGame.score-=1;
             score.text = "Score : "+BeginGame.score.ToString();
             answer.color = new Color32(255, 0,0 ,255);
+            Invoke("reset",1);
         }
 
 
@@ -109,6 +111,11 @@ public class AnswerCheckLevel1 : MonoBehaviour
             
        
     }
+
+    void reset()
+     {
+        answer.text = "";
+     }
 
     string RandomTime()
     {

@@ -51,8 +51,7 @@ public class ShapeGameLevel2 : MonoBehaviour
         answer.color = new Color32(0, 255, 0, 255);
 
         BeginGame.score+=10;
-        
-       // score.text = (int.Parse(score.text)*-1).ToString();
+        Invoke("reset",1);
 
        }
        else
@@ -60,6 +59,8 @@ public class ShapeGameLevel2 : MonoBehaviour
         answer.text = "Sorry, wrong answer";
         BeginGame.score -= 2;
         answer.color = new Color32(255, 0,0 ,255);
+
+        Invoke("reset",1);
        }
 
        if(BeginGame.shapeLevel2Q!=0)
@@ -73,6 +74,10 @@ public class ShapeGameLevel2 : MonoBehaviour
        {
         SceneManager.LoadSceneAsync("ResultScreen");
        }
+     }
+     void reset()
+     {
+        answer.text = "";
      }
    
 }

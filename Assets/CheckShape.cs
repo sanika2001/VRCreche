@@ -58,12 +58,16 @@ public class CheckShape : MonoBehaviour
         
         score.text = (int.Parse(score.text)*-1).ToString();
 
+        Invoke("reset",1);
+
        }
        else
        {
         answer.text = "Sorry, wrong answer";
         BeginGame.score -= 1;
         answer.color = new Color32(255, 0,0 ,255);
+
+        Invoke("reset",1);
        }
 
        if(BeginGame.shapeLevel1Q!=0)
@@ -82,6 +86,11 @@ public class CheckShape : MonoBehaviour
         BeginGame.score = 0;
         SceneManager.LoadSceneAsync("shapeGame");
        }
+     }
+
+     void reset()
+     {
+        answer.text = "";
      }
    
 }
