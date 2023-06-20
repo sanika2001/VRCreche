@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
@@ -12,6 +13,7 @@ public class AnswerCheckLevel1 : MonoBehaviour
     public TMP_Text time;
     public TMP_Text answer;
     public TMP_Text score;
+    public RawImage levelupImg;
 
     private float SceneWidth;
     private Vector3 PressP;
@@ -102,19 +104,32 @@ public class AnswerCheckLevel1 : MonoBehaviour
 
         if(BeginGame.score>=20&&questions==0)
         {
-            SceneManager.LoadSceneAsync("abhiram");
+            levelupImg.enabled = true;
+            Invoke("disable",2);
+            
         }
         else if(questions==0)
         {
-            SceneManager.LoadSceneAsync("ClockLev1");
+            answer.color = new Color32(255, 0,0 ,255);
+            answer.text = "Level restart";
+            Invoke("restart",1);
+            
         }
             
        
     }
-
+    void restart()
+    {
+        SceneManager.LoadSceneAsync("ClockLev1");
+    }
     void reset()
      {
         answer.text = "";
+     }
+     void disable()
+     {
+        levelupImg.enabled = false;
+        SceneManager.LoadSceneAsync("abhiram");
      }
 
     string RandomTime()
