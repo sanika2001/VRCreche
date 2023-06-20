@@ -3161,5 +3161,6 @@ MonoBehaviour:
   answer: {fileID: 1461680930}
   score: {fileID: 424190471}
   levelupImg: {fileID: 312681352}
+  hint: {fileID: 113694765}
   minuteHand: {fileID: 1683361204}
   hourHand: {fileID: 1145440608}
