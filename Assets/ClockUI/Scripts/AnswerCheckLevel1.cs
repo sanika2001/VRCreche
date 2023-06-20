@@ -14,6 +14,7 @@ public class AnswerCheckLevel1 : MonoBehaviour
     public TMP_Text answer;
     public TMP_Text score;
     public RawImage levelupImg;
+    public TMP_Text hint;
 
     private float SceneWidth;
     private Vector3 PressP;
@@ -105,6 +106,7 @@ public class AnswerCheckLevel1 : MonoBehaviour
         if(BeginGame.score>=20&&questions==0)
         {
             levelupImg.enabled = true;
+            hint.text = "";
             Invoke("disable",2);
             
         }
